@@ -1,0 +1,14 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+pushTo(BuildContext context, String route) {
+  context.push(route);
+}
+
+pushWithReplacement(BuildContext context, String route) {
+  context.pushReplacement(route);
+}
+
+pushAndRemoveUntil(BuildContext context, String route) {
+  context.go(route);
+}
