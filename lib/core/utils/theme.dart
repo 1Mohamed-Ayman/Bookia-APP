@@ -16,7 +16,10 @@ class AppTheme {
       seedColor: AppColors.primaryColor,
       onSurface: AppColors.darkColor,
     ),
+    dividerTheme: DividerThemeData(color: AppColors.borderColor),
     inputDecorationTheme: InputDecorationTheme(
+      fillColor: AppColors.accentColor,
+      filled: true,
       hintStyle: TextStyles.stylesize14(color: AppColors.greyColor),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),

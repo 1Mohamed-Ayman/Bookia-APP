@@ -12,4 +12,7 @@ class AppImages {
   static const String homeSVG = 'assets/icons/home.svg';
   static const String logoutSVG = 'assets/icons/logout.svg';
   static const String profileSVG = 'assets/icons/Profile.svg';
+  static const String appleSVG = 'assets/icons/apple.svg';
+  static const String googleSVG = 'assets/icons/google.svg';
+  static const String facebookSVG = 'assets/icons/facebook.svg';
 }
