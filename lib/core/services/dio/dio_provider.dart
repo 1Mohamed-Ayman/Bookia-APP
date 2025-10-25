@@ -1,4 +1,4 @@
-import 'package:bookia/services/dio/api_endpoints.dart';
+import 'package:bookia/core/services/dio/api_endpoints.dart';
 import 'package:dio/dio.dart';
 
 class DioProvider {

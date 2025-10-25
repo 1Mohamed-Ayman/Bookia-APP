@@ -15,4 +15,5 @@ class AppImages {
   static const String appleSVG = 'assets/icons/apple.svg';
   static const String googleSVG = 'assets/icons/google.svg';
   static const String facebookSVG = 'assets/icons/facebook.svg';
+  static const String searchSVG = 'assets/icons/search.svg';
 }

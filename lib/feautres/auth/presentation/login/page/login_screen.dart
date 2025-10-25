@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:bookia/components/app_bar/app_bar_with_back.dart';
 import 'package:bookia/components/buttons/main_button.dart';
 import 'package:bookia/components/inputs/custom_text_field.dart';
+import 'package:bookia/components/inputs/passowrd_text_field.dart';
 import 'package:bookia/core/constants/app_images.dart';
 import 'package:bookia/core/functions/dialogs.dart';
 import 'package:bookia/core/routes/navigation.dart';
@@ -50,8 +51,8 @@ class LoginScreen extends StatelessWidget {
         if (state is AuthLoadingState) {
           showLoadingDialog(context);
         } else if (state is AuthSuccessState) {
-          pop(context);
           showSuccessDialog(context, state.message);
+          goToBase(context, Routes.main);
         } else if (state is AuthErrorState) {
           pop(context);
           showErrorDialog(context, state.message);
@@ -80,14 +81,10 @@ class LoginScreen extends StatelessWidget {
                   },
                 ),
                 Gap(12),
-                CustomTextField(
+                PassowrdTextField(
                   controller: cubit.passwordController,
                   hint: 'Enter your password',
-                  suffixIcon: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [SvgPicture.asset(AppImages.eyeSVG)],
-                  ),
+
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your password';

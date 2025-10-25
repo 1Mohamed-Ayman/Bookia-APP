@@ -1,9 +1,10 @@
 import 'dart:developer';
 
+import 'package:bookia/core/services/local/local_helper.dart';
 import 'package:bookia/feautres/auth/data/models/auth_parames.dart';
 import 'package:bookia/feautres/auth/data/models/auth_response/auth_response.dart';
-import 'package:bookia/services/dio/api_endpoints.dart';
-import 'package:bookia/services/dio/dio_provider.dart';
+import 'package:bookia/core/services/dio/api_endpoints.dart';
+import 'package:bookia/core/services/dio/dio_provider.dart';
 
 class AuthRepo {
   static Future<AuthResponse?> register(AuthParams params) async {
@@ -13,9 +14,13 @@ class AuthRepo {
         data: params.toJson(),
       );
       if (res.statusCode == 201) {
+        //Parse Data Json to Object
         //success
         var body = res.data;
-        return AuthResponse.fromJson(body);
+        var userObj = AuthResponse.fromJson(body);
+        //Store User Data in SharedPref
+        SharedPref.saveUserData(userObj.data);
+        return userObj;
       } else {
         //error
         return null;
@@ -35,6 +40,9 @@ class AuthRepo {
       if (res.statusCode == 200) {
         //success
         var body = res.data;
+        var userObj = AuthResponse.fromJson(body);
+        //Store User Data in SharedPref
+        SharedPref.saveUserData(userObj.data);
         return AuthResponse.fromJson(body);
       } else {
         //error
