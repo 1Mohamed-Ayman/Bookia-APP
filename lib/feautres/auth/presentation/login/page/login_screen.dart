@@ -51,11 +51,11 @@ class LoginScreen extends StatelessWidget {
         if (state is AuthLoadingState) {
           showLoadingDialog(context);
         } else if (state is AuthSuccessState) {
-          showSuccessDialog(context, state.message);
+          showMyDialog(context, type: DialogType.success, state.message);
           goToBase(context, Routes.main);
         } else if (state is AuthErrorState) {
           pop(context);
-          showErrorDialog(context, state.message);
+          showMyDialog(context, type: DialogType.error, state.message);
         }
       },
       child: Padding(

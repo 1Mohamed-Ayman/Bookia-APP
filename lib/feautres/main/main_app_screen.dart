@@ -1,6 +1,7 @@
 import 'package:bookia/core/constants/app_images.dart';
 import 'package:bookia/core/utils/colors.dart';
 import 'package:bookia/feautres/home/presentation/page/home_screen.dart';
+import 'package:bookia/feautres/wishlist/presentation/page/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -14,7 +15,12 @@ class MainAppScreen extends StatefulWidget {
 class _MainAppScreenState extends State<MainAppScreen> {
   int _currentIndex = 0;
 
-  List<Widget> pages = [HomeScreen()];
+  List<Widget> pages = [
+    HomeScreen(),
+    WishlistScreen(),
+    HomeScreen(),
+    HomeScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

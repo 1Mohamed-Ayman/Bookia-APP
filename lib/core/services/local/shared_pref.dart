@@ -14,7 +14,6 @@ class SharedPref {
   }
 
   static saveUserData(UserModel? model) {
-    // if model is null (return = Skip) the value below , no need to cash it
     if (model == null) return;
     // to parse object to json
     var json = model.toJson();

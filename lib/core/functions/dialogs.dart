@@ -2,30 +2,24 @@ import 'package:bookia/core/utils/colors.dart';
 import 'package:bookia/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 
-showErrorDialog(BuildContext context, String message) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      behavior: SnackBarBehavior.floating,
-      margin: EdgeInsets.all(20),
-      elevation: 0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      backgroundColor: AppColors.redColor,
-      content: Text(
-        message,
-        style: TextStyles.stylesize16(color: AppColors.whiteColor),
-      ),
-    ),
-  );
-}
+enum DialogType { error, success, warning }
 
-showSuccessDialog(BuildContext context, String message) {
+showMyDialog(
+  BuildContext context,
+  String message, {
+  DialogType type = DialogType.error,
+}) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       behavior: SnackBarBehavior.floating,
       margin: EdgeInsets.all(20),
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      backgroundColor: AppColors.greenColor,
+      backgroundColor: type == DialogType.error
+          ? AppColors.redColor
+          : type == DialogType.success
+          ? AppColors.greenColor
+          : AppColors.primaryColor,
       content: Text(
         message,
         style: TextStyles.stylesize16(color: AppColors.whiteColor),

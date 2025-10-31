@@ -2,9 +2,10 @@ import 'package:bookia/feautres/auth/presentation/cubit/auth_cubit.dart';
 import 'package:bookia/feautres/auth/presentation/login/page/login_screen.dart';
 import 'package:bookia/feautres/auth/presentation/register/page/register_screen.dart';
 import 'package:bookia/feautres/home/data/models/best_seller_response/product.dart';
+import 'package:bookia/feautres/home/presentation/cubit/home_cubit.dart';
 import 'package:bookia/feautres/home/presentation/page/details_screen.dart';
 import 'package:bookia/feautres/main/main_app_screen.dart';
-import 'package:bookia/feautres/splash_screen.dart';
+import 'package:bookia/feautres/splash/splash_screen.dart';
 import 'package:bookia/feautres/welcome/welcome_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -52,7 +53,10 @@ class Routes {
         path: details,
         builder: (context, state) {
           var book = state.extra as Product;
-          return DetailsScreen(book: book);
+          return BlocProvider(
+            create: (context) => HomeCubit(),
+            child: DetailsScreen(book: book),
+          );
         },
       ),
     ],

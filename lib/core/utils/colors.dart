@@ -9,5 +9,5 @@ class AppColors {
   static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color accentColor = Color(0xFFF7F8F9);
   static const Color redColor = Color.fromARGB(255, 255, 76, 76);
-  static const Color greenColor = Color.fromARGB(255, 76, 255, 91);
+  static const Color greenColor = Color.fromARGB(255, 53, 190, 94);
 }

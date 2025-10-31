@@ -52,7 +52,7 @@ class RegisterScreen extends StatelessWidget {
           log('Register Success' as num);
         } else if (state is AuthErrorState) {
           pop(context);
-          showErrorDialog(context, state.message);
+          showMyDialog(context, state.message);
         }
       },
       child: Padding(
